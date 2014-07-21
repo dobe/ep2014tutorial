@@ -1,0 +1,9 @@
+/bin/
+/parts/
+/develop-eggs/
+/.installed.cfg
+/dist
+/build
+*.pyc
+/.idea/
+*.DS_Store
