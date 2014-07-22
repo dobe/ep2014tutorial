@@ -21,9 +21,7 @@ setup(
         'setuptools',
         'crate[sqlalchemy]',
         'pyramid',
-        'pyramid_tm',
         'waitress',
-        'zope.sqlalchemy',
         'webtest'
         ]
 )

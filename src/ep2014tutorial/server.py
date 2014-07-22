@@ -10,8 +10,7 @@ from sqlalchemy.orm import sessionmaker
 
 
 def app_factory(global_config, **settings):
-    config = Configurator(settings=settings,
-                          autocommit=True)
+    config = Configurator(settings=settings)
     config.include('ep2014tutorial.views')
     config.scan('ep2014tutorial.views')
     db_init(config)
