@@ -9,9 +9,9 @@ create table tweets (
         verified boolean,
         followers_count integer,
         id string,
-        statuses_count integer, \
-        description string INDEX using fulltext, \
-        friends_count integer, \
-        location string INDEX using fulltext \
+        statuses_count integer,
+        description string INDEX using fulltext,
+        friends_count integer,
+        location string INDEX using fulltext
         )
 ) with (number_of_replicas = '0-5');
