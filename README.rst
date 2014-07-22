@@ -39,15 +39,26 @@ First start the Crate Datastore::
 
  ./bin/crate
 
+Initialize the database schema::
+
+ ./parts/crate/bin/crash < src/ep2014tutorial/schema.sql
+
 Then start the application::
 
  ./bin/app
 
+Using
+=====
+
+Go to http://localhost:4200/_plugin/crate-admin/#/tutorial and start
+the tweet import to add data.
+
+See the latest tweets at http://localhost:8080/latest
 
 The admin interface of the data store is avalable under
 http://localhost:4200 and the app gets exposed unter
 http://localhost:8080
- 
+
 Running Tests
 =============
 
