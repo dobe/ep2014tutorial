@@ -7,9 +7,14 @@ setup(
     package_dir={'': 'src'},
     packages=find_packages('src'),
     extras_require=dict(
-        test=['crate[test]']
+        test=['crate[test]',
+              'webtest'
+              ]
     ),
     install_requires = [
         'setuptools',
+        'crate[sqlalchemy]',
+        'pyramid',
+        'waitress',
         ]
 )
