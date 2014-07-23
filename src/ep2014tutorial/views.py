@@ -2,8 +2,8 @@ from pyramid.view import view_config
 from pyramid.response import Response
 from .model import DBSession, Tweet
 import sqlalchemy.exc
-import json
 from pyramid.renderers import JSON
+
 
 @view_config(route_name='probe_status')
 def probe_status_view(request):
@@ -19,9 +19,10 @@ def probe_status_view(request):
 
 @view_config(route_name='latest')
 def latest_tweets(request, request_method='GET'):
+    limit = int(request.GET.get('limit', 10))
     query = DBSession.query(Tweet).order_by(
         Tweet.created_at.desc(), Tweet.id.desc()
-        ).limit(10)
+        ).limit(limit)
     return list(query)
 
 

@@ -6,15 +6,17 @@ from sqlalchemy import (Column,
                         String,
                         DateTime,
                         Boolean,
-                        Integer)
+                       )
 
 import uuid
 
 DBSession = scoped_session(sessionmaker())
 Base = declarative_base()
 
+
 def genuuid():
     return str(uuid.uuid4())
+
 
 class Tweet(Base):
     __tablename__ = 'tweets'
@@ -27,10 +29,10 @@ class Tweet(Base):
     user = Column(Object)
 
     def __json__(self, request):
-        res =  dict(id=self.id,
-                    text=self.text,
-                    created_at=self.created_at.isoformat()
-            )
+        res = dict(id=self.id,
+                   text=self.text,
+                   created_at=self.created_at.isoformat()
+                  )
         userId = self.user and self.user.get('id')
         if userId:
             res['user'] = userId
