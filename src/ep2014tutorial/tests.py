@@ -37,10 +37,11 @@ def setUp(test, app_func=get_app):
     test.globs['pprint'] = pprint
 
     with open(schema_sql) as f:
-        try:
-            model.DBSession.execute(f.read().split(';')[0])
-        except:
-            pass
+        model.DBSession.execute(f.read().split(';')[0])
+
+
+def tearDown(test):
+    model.DBSession.execute('DROP TABLE tweets')
 
 
 def create_suite(testfile, layer=None,
@@ -48,7 +49,7 @@ def create_suite(testfile, layer=None,
                  level=None,
                  **kwargs):
     s = doctest.DocFileSuite(
-        testfile, setUp=setUp,
+        testfile, setUp=setUp, tearDown=tearDown,
         optionflags=optionflags,
         **kwargs
         )
