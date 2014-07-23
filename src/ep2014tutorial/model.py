@@ -20,7 +20,9 @@ def genuuid():
 
 class Tweet(Base):
     __tablename__ = 'tweets'
+
     id = Column(String, primary_key=True)
+
     created_at = Column(DateTime)
     text = Column(String)
     source = Column(String)
@@ -29,6 +31,7 @@ class Tweet(Base):
     user = Column(Object)
 
     def __json__(self, request):
+        # provide the Tweet as a JSON serializable dict
         res = dict(id=self.id,
                    text=self.text,
                    created_at=self.created_at.isoformat()

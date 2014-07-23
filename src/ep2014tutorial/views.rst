@@ -46,6 +46,8 @@ A tweet with user data::
       'user': 'user_id1'},
      {'created_at': '2014-07-23T14:00:00', 'id': '1', 'text': 'tweet1'}]
 
+Use the `limit` GET parameter::
+
     >>> pprint(app.get('/latest?limit=1').json)
     [{'created_at': '2014-07-23T14:00:01',
       'id': '2',
